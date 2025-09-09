@@ -1,0 +1,7 @@
+charAt() = that function use to give specific character in string
+length() = it can count length of string
+Character.isLetter() = that function compare available available string is character letter or not
+Character.isWhitespace() = that function count on space in character..
+nextLine() = that can print full line in string.
+compareTo = it can compare to function
+substring(begin of index,end of index) = it can print sub string in main string
