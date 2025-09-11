@@ -1,42 +1,54 @@
 import java.util.Scanner;
 
-public class result
+class subject
 {
-    public static void main(String[] args) 
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt();
+    String sub[] = new String[num];
+    int marks[] = new int[num];
+    
+    void show()
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("enter subject no :- ");
-        int no = sc.nextInt();
-        
-        int marks[] = new int[no];
-
-        System.out.println("------------------------------------------");
-
-        for(int i=0 ; i<no ;i++)
+        for(int i=0;i<num;i++)
         {
-            System.out.print("enter marks subject" + i + ":- " );
+            System.out.print("Subject " + (i+1) + " :- ");
+            sub[i] = sc.next();
+            System.out.print("marks " + sub[i] + " :- ");
             marks[i] = sc.nextInt();
         }
-        for(int i=0 ; i<no ;i++)
+    }
+}
+public class result extends subject 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter student name :- ");
+        String name = sc.nextLine();
+        System.out.print("course :- ");
+        String course = sc.nextLine();
+        System.out.print("PNR no :- :- ");
+        int pnr = sc.nextInt();
+
+        subject s = new subject();
+        s.show();
+        int sum = 0;
+        for(int i=0;i<s.num;i++)
         {
-            System.out.println("enter marks subject" + i + ":- " + marks[i]);
+            sum += s.marks[i];
         }
-        int result = 0;
-        for(int i=0 ;i<no ;i++)
+        System.out.println();
+        System.out.println();
+        System.out.println("--------Result-----------");
+        System.out.println("Name of student :- " + name);
+        System.out.println("Course :- " + course);
+        System.out.println("PNR :- " + pnr);
+        for(int i=0;i<s.num;i++)
         {
-            result = result + marks[i];
+            System.out.print(s.sub[i] + "  :-  ");
+            System.out.println(s.marks[i]);
         }
-        System.out.println("your percanrage is :- " + result/no);
-        System.out.println("------------------------------------------");        
-        
-            if(result>=33)
-            {
-                System.out.println("you can pass exam..... ");
-            }
-            else
-            {
-                System.out.println("you fell in the exam.....");
-            }
-        
-    }    
+
+        System.out.println("result :- " + (sum/s.num));
+    }
 }
