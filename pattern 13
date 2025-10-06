@@ -1,0 +1,28 @@
+import java.util.*;
+public class pattern_13
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter no :- ");
+        int no = sc.nextInt();
+        int j=no;
+        for(int i=0;i<no;i++)
+        {
+            j--;
+            for(int m=no-1;m>i;m--)
+            { 
+                System.out.print("   ");
+            }
+            for(int k=0;k<i+1;k++)
+            {
+                System.out.print(" " + (k+1)+ " ");
+            }
+            for(int l=0;l<i;l++)
+            {
+                System.out.print(" " + (l+3)+ " ");
+            }
+            System.out.println();
+        }
+    }
+}
