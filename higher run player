@@ -1,0 +1,54 @@
+import java.util.*;
+class player_data
+{
+    int id;
+    String name;
+    int total_match = 0;
+    int total_run = 0;
+    player_data(int id,String p_name,int match,int run)
+    {
+        this.id = id;
+        name = p_name;
+        total_match = match;
+        total_run = run;
+    }
+}
+public class player 
+{
+    public static void main(String[] args)
+    {
+        player_data p[] = new player_data[5];
+        int extra = 0;
+        p[0] = new player_data(01,"yash",20,100);
+        p[1] = new player_data(02,"bhavik",20,99);
+        p[2] = new player_data(03,"darshan",19,90);
+        p[3] = new player_data(04,"yash parmar",20,110);
+        p[4] = new player_data(01,"kaushal",10,40);
+        for(int i=0;i<=4;i++)
+        {
+            int sam;
+            if(i==4)
+            {
+                sam = p[i].total_run;
+            }
+            else
+            {
+                sam = p[i+1].total_run;
+            }
+            if(p[i].total_run < sam)
+            {
+                extra = p[i+1].id;
+            }
+        }
+        for(int i=0;i<5;i++)
+        {
+            if(extra == p[i].id)
+            {
+                System.out.println(p[i].id);
+                System.out.println(p[i].name);
+                System.out.println(p[i].total_run);
+                System.out.println(p[i].total_match);
+            }
+        }
+    }    
+}
