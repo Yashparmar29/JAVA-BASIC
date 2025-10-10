@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class age_ex extends Exception
+{
+    public age_ex(String s)
+    {
+        super(s);
+    }
+}
+class age_gap
+{
+    
+    public void age() throws age_ex
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter age :- ");
+        int n = sc.nextInt();
+        if(n < 18)
+        {
+           throw new age_ex("you are not valid");
+        }
+        else
+        {
+            System.out.println("you are valid ....");
+        }
+    }
+    public static void main(String[] args)
+    {
+        age_gap a = new age_gap();       
+        try 
+        {
+            a.age();
+        }
+        catch(age_ex e)
+        {
+            System.out.println("you are not eligible for voting       . - >" + e.getMessage());
+        }
+    }
+}
