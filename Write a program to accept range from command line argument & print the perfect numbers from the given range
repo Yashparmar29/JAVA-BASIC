@@ -1,0 +1,36 @@
+ //Write a program to accept range from command line argument & print the perfect numbers from the given range
+ class perfect
+ {
+    int no,sum=0;
+    perfect(int no)
+    {
+        this.no = no;
+    }
+    void count()
+    {
+        for(int i=1;i<no;i++)
+        {
+            if(no % i ==0)
+            {
+                sum += i;
+            }
+        }
+        if(no == sum)
+        {
+            System.out.println("number is perfect");
+        }
+        else
+        {
+            System.out.println("number is no perfect");
+        }
+    }
+ }
+public class perfect_number 
+{
+    public static void main(String[] args)
+    {
+        int no = Integer.parseInt(args[0]);
+        perfect p = new perfect(no);
+        p.count();
+    }
+}
