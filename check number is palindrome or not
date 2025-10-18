@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class palindrome_or_not_number 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter number :- ");
+        int no1 = sc.nextInt();
+        int no = no1;
+        int rev = 0;
+
+        while(no != 0)
+        {
+            int d = no % 10;
+            rev = rev * 10 + d;
+            //System.out.println(rev);
+            no /= 10;
+        }
+        if(no1 == rev)
+        {
+            System.out.println("number is palindrome");
+        }
+        else
+        {
+            System.out.println("number is not palindrome");
+        }
+    }    
+}
+
+/*
+enter number :- 132
+number is not palindrome
+
+enter number :- 212
+number is palindrome
+
+*/
