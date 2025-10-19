@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+class Account
+{
+    int acc_no,balance;
+    String acc_type,cust_name;
+    Account(Scanner sc)
+    {
+        System.out.print("enter account number :- ");
+        acc_no = sc.nextInt();
+        System.out.print("enter account holder name :- ");
+        cust_name = sc.next();
+        System.out.print("enter account type :- ");
+        acc_type = sc.next();
+        System.out.print("enter account balance :- ");
+        balance = sc.nextInt();
+    }
+    void deposit(Scanner sc)
+    {
+        System.out.print("enter balance :- ");
+        int deposit_balance = sc.nextInt();
+        balance += deposit_balance;
+        System.out.println("available balance :- " + balance);
+    }
+    void withdraw(Scanner sc)
+    {
+        System.out.print("enter balance :- ");
+        int withdraw_balance = sc.nextInt();
+        if(balance >= withdraw_balance)
+        {
+            balance -= withdraw_balance;
+        System.out.println("available balance :- " + balance);
+        }
+    }
+    void show()
+    {
+        System.out.println("account number :- " +  acc_no);
+        System.out.println("account holder name :- " + cust_name);
+        System.out.println("account type :- " + acc_type);
+        System.out.println("enter account balance :- " + balance);
+    }
+}
+public class Account_details 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        Account a = new Account(sc);
+        a.show();
+        System.out.println("1 -> deposit");
+        System.out.println("2 -> withdraw");
+        System.out.println("3 ->  show balance ");
+        System.out.print("enter choice :- ");
+        int ch = sc.nextInt();
+        if(ch == 1)
+        {
+            a.deposit(sc);
+        }
+        else if(ch == 2)
+        {
+            a.withdraw(sc);
+        }
+        else if(ch == 3)
+        {
+            a.show();
+        }
+        else
+        {
+            System.out.println("you have entered wrong choice...");
+        }
+    }    
+}
