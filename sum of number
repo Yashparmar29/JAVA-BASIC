@@ -1,0 +1,19 @@
+import java.util.Scanner; // Import the Scanner class for user input
+
+public class SumOfNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Create a Scanner object
+
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt(); // Read the first integer from user
+
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt(); // Read the second integer from user
+
+        int sum = num1 + num2; // Calculate the sum
+
+        System.out.println("The sum is: " + sum); // Print the result
+
+        scanner.close(); // Close the scanner to release resources
+    }
+}
