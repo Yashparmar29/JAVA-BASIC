@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Geeks {
+    public static void main(String[] args)
+    {
+        Geeks g = new Geeks();
+
+        System.out.println("Hashcode is: " + g.hashCode());
+
+        g = null;
+
+        System.gc();
+
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("End of the garbage collection");
+    }
+
+    @Override protected void finalize()
+    {
+        System.out.println("Called the finalize() method");
+    }
+}
