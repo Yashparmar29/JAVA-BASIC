@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class area_of_square 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter R :- ");
+        int r = sc.nextInt();
+
+        double ans = (22/7) * (r * r);
+        System.out.println("answer :- " + ans);
+    }    
+}
