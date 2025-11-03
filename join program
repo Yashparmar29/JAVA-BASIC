@@ -1,0 +1,39 @@
+import java.io.*;
+
+public class JoinFileReadWrite {
+    public static void main(String[] args) {
+        String fileName = "joinedExample.txt"; // File name
+        String content = "This is a joined read-write example in Java.\n"
+                       + "It first writes to a file, then reads it back.\n"
+                       + "Developed by Yash Parmar.";
+
+        writeToFile(fileName, content);
+
+        readFromFile(fileName);
+    }
+
+    public static void writeToFile(String fileName, String content) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+            bw.write(content);
+            System.out.println("✅ Successfully written to file: " + fileName);
+        } catch (IOException e) {
+            System.out.println("❌ Error writing file: " + e.getMessage());
+        }
+    }
+
+    public static void readFromFile(String fileName) {
+        System.out.println("\n📖 Reading data from " + fileName + ":\n");
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            System.out.println("\n✅ File read completed successfully!");
+        } catch (FileNotFoundException e) {
+            System.out.println("❌ File not found: " + fileName);
+        } catch (IOException e) {
+            System.out.println("❌ Error reading file: " + e.getMessage());
+        }
+    }
+}
