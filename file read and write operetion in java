@@ -1,0 +1,37 @@
+import java.io.*;
+
+public class FileReadWriteExample {
+
+    public static void main(String[] args) {
+        String fileName = "example.txt"; // File to write and read
+        String content = "Hello, this is a file read/write example in Java.\n"
+                       + "You can modify this text to test writing and reading.\n"
+                       + "This file is created by FileReadWriteExample program.";
+        writeToFile(fileName, content);
+
+        readFromFile(fileName);
+    }
+
+    public static void writeToFile(String fileName, String content) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+            System.out.println("✅ Data written successfully to " + fileName);
+        } catch (IOException e) {
+            System.out.println("❌ Error writing to file: " + e.getMessage());
+        }
+    }
+    public static void readFromFile(String fileName) {
+        System.out.println("\n📖 Reading content from " + fileName + ":\n");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line); // Print each line
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("❌ File not found: " + fileName);
+        } catch (IOException e) {
+            System.out.println("❌ Error reading file: " + e.getMessage());
+        }
+    }
+}
