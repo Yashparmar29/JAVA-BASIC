@@ -1,0 +1,63 @@
+import java.io.*;
+class  RandFile
+{
+	static void readFileInt() throws IOException
+	{
+		RandomAccessFile raf = new RandomAccessFile("xyz.txt", "r");
+		//raFile.seek(3*4);
+		//raFile.readInt();
+		 for(int currentPosition=0;currentPosition< raf.length();currentPosition+=4) {
+                
+				raf.seek(currentPosition);
+               
+                    int num = raf.readInt();
+                    System.out.println("Integer at position " + currentPosition + ": " + num);
+		 }
+		raf.close();
+		
+	}
+	static void readFile() throws IOException
+	{
+		RandomAccessFile raFile = new RandomAccessFile("xyz.txt", "r");
+		byte byteAr[]=new byte[100];
+		raFile.read(byteAr);
+		String t=new String(byteAr);
+		System.out.println("File Content: "+t);
+		raFile.close();
+		
+	}
+	
+	static void appendData(String data) throws IOException {
+		RandomAccessFile raFile = new RandomAccessFile("xyz.txt", "rw");
+		raFile.seek(raFile.length());
+		System.out.println("current pointer = "+raFile.getFilePointer());
+		raFile.write(data.getBytes());
+		raFile.close();
+	   }
+	   static void WriteToFileInt()throws FileNotFoundException, IOException
+	{
+		   RandomAccessFile raFile = new RandomAccessFile("xyz.txt", "rw");
+	    raFile.writeInt(100);
+		raFile.writeInt(200);
+		raFile.writeInt(300);
+		raFile.writeInt(400);
+		raFile.writeInt(500);
+		raFile.close();
+	}
+	static void WriteToFile(String str)throws FileNotFoundException, IOException
+	{
+		RandomAccessFile rafile = new RandomAccessFile("xyz.txt", "w");
+		
+		rafile.write(str.getBytes());
+		rafile.close();
+	}
+	public static void main(String[] args) throws FileNotFoundException, IOException
+	{
+		WriteToFile("MITWPU");
+		//WriteToFileInt();
+		//appendData("Pune");
+		//readFileInt();
+		readFile();
+		//System.out.println("Hello World!");
+	}
+}
