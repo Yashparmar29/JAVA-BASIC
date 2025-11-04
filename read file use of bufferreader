@@ -1,0 +1,25 @@
+import java.util.*;
+import java.io.*;
+public class read_file
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter file name :- ");
+        String name = sc.next();
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader(name));
+            String line;
+
+            while((line = reader.readLine()) != null)
+            {
+                System.out.println(line);
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error found!!!!!");
+        }
+    }
+}
