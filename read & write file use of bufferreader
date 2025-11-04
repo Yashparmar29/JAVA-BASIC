@@ -1,0 +1,38 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Scanner;
+
+public class read_write 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter file Name :- ");
+        String name = sc.next();
+        try
+        {
+            FileWriter writer1 = new FileWriter(name,true);
+            BufferedWriter buffer = new BufferedWriter(writer1);
+            
+            buffer.write("I am Yash parmar");
+            buffer.write("I am student of MITWPU");
+            buffer.close();
+
+            BufferedReader buffer1 = new BufferedReader(new FileReader(name));
+            String line;
+            while((line = buffer1.readLine())!= null)
+            {
+                for(int i=8;i>=0;i=i-4)
+                {
+                    System.out.println(line);
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error founded !!!");
+        }
+    }    
+}
