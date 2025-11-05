@@ -1,0 +1,27 @@
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Scanner;
+
+public class write_file 
+{
+    void read_file(String name) throws IOException
+    {
+        RandomAccessFile ran = new RandomAccessFile(name,"rw");
+        byte b[] = new byte[100];
+        ran.read(b);
+        String s = new String(b);
+        System.out.println("File :- " + s);
+
+    }
+    public static void main(String[] args) throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter File Name :- ");
+        String name = sc.next();
+        RandomAccessFile ran = new RandomAccessFile(name,"rw");
+        String ch = sc.next();
+        ran.write(ch.getBytes());
+        write_file r = new write_file();
+        r.read_file(name);
+    }    
+}
