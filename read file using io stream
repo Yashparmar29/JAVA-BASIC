@@ -1,0 +1,17 @@
+import java.util.Scanner;
+import java.io.*;
+public class read_file1 
+{
+        public static void main(String[] args) throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter File Name :- ");
+        String name = sc.next();
+        RandomAccessFile ran = new RandomAccessFile(name,"r");
+        byte by[] = new byte[100];
+        ran.read(by);
+        String ar = new String(by);
+        System.out.println("File content :- " + ar);
+        ran.close();
+    }
+}
