@@ -1,0 +1,23 @@
+import java.util.Scanner; 
+ 
+public class SimpleInterest { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        System.out.print("Enter principal amount: "); 
+        double principal = sc.nextDouble(); 
+        System.out.print("Enter time in years: "); 
+        double years = sc.nextDouble(); 
+ 
+        double rate; 
+        if (principal <= 10000 && years <= 2) 
+            rate = 9; 
+        else if (principal <= 10000 && years > 2) 
+            rate = 10; 
+        else 
+            rate = 11; 
+ 
+        double si = (principal * rate * years) / 100; 
+        System.out.println("Simple Interest = " + si); 
+    } 
+} 
+ 
