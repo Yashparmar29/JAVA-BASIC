@@ -1,0 +1,35 @@
+class Employee { 
+    int empNo; 
+    String empName, designation; 
+    Employee(int no, String name, String desig) { 
+        empNo = no; 
+        empName = name; 
+        designation = desig; 
+    } 
+} 
+class Salary extends Employee { 
+    double basicSal; 
+    Salary(int no, String name, String desig) { 
+        super(no, name, desig); 
+        computeSalary(); 
+    } 
+    void computeSalary() { 
+        switch (designation.toLowerCase()) { 
+            case "manager": basicSal = 80000; break; 
+ 
+            case "developer": basicSal = 50000; break; 
+            case "clerk": basicSal = 30000; break; 
+            default: basicSal = 25000; 
+        } 
+    } 
+    void display() { 
+        System.out.println("Emp No: " + empNo); 
+        System.out.println("Name: " + empName); 
+        System.out.println("Designation: " + designation); 
+        System.out.println("Basic Salary: " + basicSal); 
+    } 
+    public static void main(String[] args) { 
+        Salary s = new Salary(1, "Mugdha", "Manager"); 
+        s.display(); 
+    } 
+} 
