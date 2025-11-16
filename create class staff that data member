@@ -1,0 +1,26 @@
+class Staff { 
+    String name, designation; 
+    String birthDate; 
+    double salary; 
+    Staff(String n, String b, String d, double s) { 
+        name = n; 
+        birthDate = b; 
+        designation = d; 
+        salary = s; 
+    } 
+    void display() { 
+        System.out.println("Name: " + name); 
+        System.out.println("Birth Date: " + birthDate); 
+        System.out.println("Designation: " + designation); 
+        System.out.println("Salary: " + salary); 
+    } 
+    public static void main(String[] args) { 
+        Staff s1 = new Staff("Mugdha", "12-05-2000", "Manager", 75000); 
+        Staff s2 = new Staff("Ansh", "10-10-1999", "Developer", 50000); 
+        System.out.println("Staff 1:"); 
+        s1.display(); 
+        System.out.println("\nStaff 2:"); 
+        s2.display(); 
+        System.out.println("\nHigher salary: " + (s1.salary > s2.salary ? s1.name : s2.name)); 
+    } 
+} 
