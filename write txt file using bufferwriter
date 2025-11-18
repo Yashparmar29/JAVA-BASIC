@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+public class write_file_use_bufferReader 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter File Name :- ");
+        String name = sc.next();
+
+        System.out.print("Enter Content :- ");
+
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(name,true));)
+        {
+            String content = sc.next();
+            bw.write(content);
+            System.out.println("Content Written Successfully");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error found");
+        }
+    }    
+}
