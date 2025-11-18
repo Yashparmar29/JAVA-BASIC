@@ -1,0 +1,40 @@
+import java.util.*;
+import java.io.*;
+public class file_write_use_bufferreader 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter File Name :- ");
+        String name = sc.next();
+        
+        System.out.print("Enter content :- ");
+        String content = sc.next();
+        try
+        {
+            FileWriter fw = new FileWriter(name,true);
+            fw.write(content);
+            fw.write("/n");
+            fw.close();
+            System.out.println("content written successfully");
+        }
+        catch(Exception e) 
+        {
+            System.out.println("Error Found ......");
+        }
+        try 
+        {
+            FileReader fr = new FileReader(name);
+            int ch;
+            
+            while((ch = fr.read()) != -1)
+            {
+                System.out.println(ch);
+            }
+        } 
+        catch (Exception e) 
+        {
+            // TODO: handle exception
+        }
+    }    
+}
