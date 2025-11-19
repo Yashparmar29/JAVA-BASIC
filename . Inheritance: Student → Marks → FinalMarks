@@ -1,0 +1,26 @@
+class Student1 {
+    int rollNo;
+    String name;
+}
+class Marks extends Student1 {
+    int javaTheory, javaPractical, total;
+    void setMark(int t, int p) {
+        javaTheory = t;
+        javaPractical = p;
+        total = javaTheory + javaPractical;
+    }
+    void showMarks() {
+        System.out.println("Roll No: " + rollNo + ", Name: " + name);
+        System.out.println("Total Java Marks: " + total);
+    }
+}
+public class FinalMarks {
+    public static void main(String[] args) {
+        Marks m = new Marks();
+        m.rollNo = 101;
+        m.name = "Mugdha";
+        m.setMark(45, 48);
+        m.showMarks();
+    }
+}
+
