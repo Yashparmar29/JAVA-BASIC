@@ -1,0 +1,39 @@
+import java.awt.*;
+import java.awt.event.*;
+class buttondemo extends Frame implements ActionListener
+{
+    Button b1,b2;
+    buttondemo()
+    {
+        b1 = new Button("Ok");
+        b2 = new Button("Cancel");
+        this.setLayout(null);
+        b1.setBounds(100,100,80,30);
+        b2.setBounds(100,100,80,30);
+        this.add(b1);
+        b1.addActionListener(this);
+        this.add(b2);
+        b2.addActionListener(this);
+        this.setVisible(true);
+        this.setSize(300,300);
+        this.setTitle("Button");
+        this.addWindowListener(new WindowAdapter ()
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);
+            }
+        });
+    }
+    public void actionPerformed(ActionEvent w)
+    {
+        System.out.println("Button click");
+    }
+}
+public class sample_program 
+{
+    public static void main(String[] args)
+    {
+        new buttondemo();   
+    }    
+}
