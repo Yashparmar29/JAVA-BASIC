@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.awt.*;
+import java.io.*;
+
+class method extends Frame
+{
+    TextArea t1;
+    method(Scanner sc)
+    {
+        super("file data");//for object of frame
+        System.out.print("Enter File Name :- ");
+        String name = sc.next();
+        
+        try
+        {
+            BufferedReader br = new BufferedReader( new FileReader(name));
+            int Line;
+            t1 = new TextArea(30,40);
+            while((Line = br.read()) != -1)
+            {
+                t1.append(Character.toString((char) Line));
+            }
+            add(t1);
+            setSize(300,200);
+            setLayout(new FlowLayout());
+            setVisible(true);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error Found");
+        }
+    }
+}
+public class transfer_data_into_file
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        new method(sc);
+    }    
+}
