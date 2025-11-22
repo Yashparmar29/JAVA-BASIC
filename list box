@@ -1,0 +1,44 @@
+import java.awt.*;
+import java.awt.event.*;
+class method extends Frame implements ActionListener
+{
+    List name;
+    String message = "List Box";
+    //label name1,name2,name3;
+
+    public method()
+    {
+        name = new List(4,true);
+        this.setLayout(new FlowLayout());
+        name.add("yash");
+        name.add("Bhavik");
+        name.add("Darshana");
+
+        add(name);
+        name.addActionListener(this);
+
+        this.setVisible(true);
+        this.setSize(300,300);
+        this.setTitle("ListBox");
+        this.addWindowListener(new WindowAdapter()
+            {
+                public void windowClosing(WindowEvent we)
+                {
+                    System.exit(0);
+                }
+            }
+        );
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        String item = name.getSelectedItem();
+        System.out.println("Selected: " + item);
+    }
+}
+public class listbox 
+{
+    public static void main(String[] args)
+    {
+        new method();        
+    }    
+}
