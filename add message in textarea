@@ -1,0 +1,30 @@
+import java.util.*;
+import java.awt.*;
+import java.io.*;
+
+class method extends Frame
+{
+    //Button b1;
+    TextArea t1,t2;
+    method(Scanner sc)
+    {
+        Frame f = new Frame("text area field");
+        String name = sc.next();
+        t1 = new TextArea(name,30,50);
+        t2 = new TextArea(name,30,40);
+        f.add(t1);
+        f.add(t2);
+        f.setSize(300,300);
+        f.setLayout(new FlowLayout());
+        f.setVisible(true);
+
+    }
+}
+public class textarea_frame
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        new method(sc);
+    }
+}
