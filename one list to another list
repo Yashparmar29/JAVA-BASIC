@@ -1,0 +1,56 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ActionListener
+{
+    List name1,name2;
+    method()
+    {
+        super("Frame is Exchange data");
+        name1 = new List(4,true);
+        name2 = new List(4,true);
+
+        name1.add("IT Department");
+        name1.add("MCA");
+        name1.add("BCA");
+        name1.add("M TECH");
+
+        name2.add("Business Department");
+        name2.add("BBA");
+        name2.add("MBA");
+        name2.add("MCOM");
+
+        add(name1);
+        add(name2);
+
+        name1.addActionListener(this);
+        name2.addActionListener(this);
+
+        this.setVisible(true);
+        this.setLayout(new FlowLayout());
+        this.setSize(300,300);
+        this.setTitle("ListBox");
+
+        this.addWindowListener(new WindowAdapter()
+    {
+        public void windowClosing(WindowAdapter we)
+        {
+            System.exit(0);
+        }
+    });
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        String item = name1.getSelectedItem();
+        System.out.println("Item :- " + item);
+        String item1 = name2.getSelectedItem();
+        System.out.println("Item1 :- " + item1);
+    }
+}
+public class file_transfer
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
