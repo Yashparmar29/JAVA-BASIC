@@ -1,0 +1,49 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ActionListener
+{
+    radiobutton b1;
+    Label lbl;
+    method()
+    {
+        super("radiobutton");
+        b1 = new radiobutton(5,true);
+        this.setLayout(new FlowLayout());
+
+        add(b1);
+
+        b1.add("Mca");
+        b1.add("Bca");
+        b1.add("Mba");
+        b1.add("Bba");
+        b1.add("Mcom");
+
+        lbl = new Label();
+        
+        b1.addActonListener(this);
+        this.setVisible(true);
+        this.setTitle("your radioButton");
+        this.setSize(300,400);
+
+        this.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(windowEvent ae)
+            {
+                System.exit(0);
+            }        
+        });
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        String item = b1.getSelectedItem();
+        System.out.println(item);
+    }
+}
+public class radiobutton 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }
+}
