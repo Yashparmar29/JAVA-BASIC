@@ -1,0 +1,71 @@
+/*
+Write a program to accept five elements in an array and find the max and min from given numbers
+
+o/p :-
+
+enter arr[0] :- 5
+enter arr[1] :- 7
+enter arr[2] :- 10
+enter arr[3] :- 9
+enter arr[4] :- 2
+minimum number :- 2
+maximum number :- 10
+ */
+import java.util.*;
+class Array_i
+{
+    int arr[] = new int[5];
+    Array_i()
+    {
+        Scanner sc = new Scanner(System.in);
+        for(int i=0;i<5;i++)
+        {
+            System.out.print("enter arr[" + i + "] :- ");
+            arr[i] = sc.nextInt();
+        }
+    }
+    void max()
+    {
+        int count = 0;
+        for(int i=0;i<=4;i++)
+        {
+            int c = i+1;
+            if(i == 4)
+            {
+                c = 4;
+            }
+            if(arr[i] < arr[c] )
+            {
+                count = c;
+            }
+        }
+        System.out.println("maximum number :- " + arr[count]);
+    }
+    void min()
+    {
+        int count = 0;
+        for(int i=0;i<=4;i++)
+        {
+            int c = i+1;
+            if(i == 4)
+            {
+                c = 4;
+            }
+            if(arr[i] > arr[c] )
+            {
+                count = c;
+            }
+        }
+        System.out.println("minimum number :- " + arr[count]);
+    }
+}
+public class Array_min_max 
+{
+    public static void main(String[] args)
+    {
+        Array_i a = new Array_i();
+        a.min();
+        a.max();
+    }
+
+}
