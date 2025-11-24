@@ -1,0 +1,53 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ItemListener
+{
+    Choice dropdown;
+    Label lbl;
+    method()
+    {
+        super();
+        this.setLayout(new FlowLayout());
+
+        dropdown = new Choice();
+        lbl = new Label("-- select course --");
+
+        dropdown.add("MCA");
+        dropdown.add("MBA");
+        dropdown.add("MCOM");
+        dropdown.add("MSC");
+        dropdown.add("MA");
+        add(dropdown);
+        add(lbl);
+
+        dropdown.addItemListener(this);
+
+        this.setVisible(true);
+        this.setSize(400,400);
+        this.setShape(getShape());
+        this.setTitle("Driodown List");
+
+        this.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);
+            }
+        });
+    }
+
+    public void itemStateChanged(ItemEvent e)
+    {
+        String item = dropdown.getSelectedItem();
+        lbl.setText(item);
+    }
+}
+
+public class dropdown_button 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
