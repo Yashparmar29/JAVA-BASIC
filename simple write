@@ -1,0 +1,24 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame
+{
+    method()
+    {
+        super();
+        this.setLayout(new FlowLayout());
+
+        this.setSize(400,400);
+        this.setVisible(true);
+        this.setTitle("Simple Frame");
+        
+    }
+}
+
+public class simple_frame 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
