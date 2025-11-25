@@ -1,0 +1,90 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ItemListener,ActionListener
+{
+    Label name,i_lbl,quan_lbl;
+    TextArea c_name,quantity;
+    List i_name,price;
+    Button done;
+
+    method()
+    {
+        super("Ice cream shop");
+        this.setLayout(new FlowLayout());
+
+        name = new Label("Customer Name :- ");
+        add(name);
+
+        c_name = new TextArea(2,8);
+        add(c_name);
+
+        System.out.println("\n");
+
+        i_lbl = new Label("Choose Icecream :- ");
+        add(i_lbl);
+        i_name = new List(5,false);
+        i_name.add("butter1");
+        i_name.add("butter2");
+        i_name.add("butter3");
+        i_name.add("butter4");
+        i_name.add("butter5");
+        add(i_name);
+        i_name.addItemListener(this);
+
+        price = new List(5,false);
+        price.add("300");
+        price.add("400");
+        price.add("500");
+        price.add("600");
+        price.add("700");
+        add(price);
+        price.addItemListener(this);
+
+        System.out.println("\n");
+
+        quan_lbl = new Label("Enter quantity :- ");
+        add(quan_lbl);
+        quantity = new TextArea(1,9);
+        add(quantity);
+
+        System.out.println("\n");
+
+        done = new Button("Ok");
+        add(done);
+        done.addActionListener(this);
+
+        this.setSize(300,300);
+        this.setVisible(true);
+
+        this.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);
+            }        
+        });
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        String line = c_name.getText();
+        System.out.println(line);
+    }
+    public void itemStateChanged(ItemEvent ie)
+    {
+        String line = i_name.getSelectedItem();
+        System.out.println("Icecream :- " + line);
+
+        String p = price.getSelectedItem();
+        System.out.println("Price :- " + p);
+
+    }
+}
+
+public class icecream 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
