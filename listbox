@@ -1,0 +1,59 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ItemListener
+{
+    List name;
+    Label lbl;
+
+    method()
+    {
+        super();
+        this.setLayout(new FlowLayout());
+
+        name = new List(6,true);
+
+        name.add("-- Course -");
+        name.add("Mca");
+        name.add("Mba");
+        name.add("Mcom");
+        name.add("Ma");
+        name.add("Msc");
+
+        add(name);
+        name.addItemListener(this);
+        lbl = new Label("--course--");
+        add(lbl);
+
+        this.setVisible(true);
+        this.setSize(400,400);
+        this.setTitle("--ListBox--");
+
+        this.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);
+            }        
+        });
+    }
+
+    public void itemStateChanged(ItemEvent ie)
+    {
+        String selected = "";
+        for(String s : name.getSelectedItems())
+        {
+            selected += s + " ";
+            lbl.setText(selected);
+
+        }
+    }
+}
+
+public class List_box 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
