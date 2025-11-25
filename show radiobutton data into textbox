@@ -1,0 +1,72 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ItemListener
+{
+    CheckboxGroup student;
+    Checkbox s1,s2,s3,s4,s5;
+    Label lbl;
+    TextArea t1;
+
+    method()
+    {
+        super();
+        this.setLayout(new FlowLayout());
+        
+        student = new CheckboxGroup();
+        
+        s1 = new Checkbox("Yash",student,false); 
+        s2 = new Checkbox("Bhavik",student,false); 
+        s3 = new Checkbox("Darshana",student,false); 
+        s4 = new Checkbox("Darshan",student,false); 
+        s5 = new Checkbox("yugant",student,false);
+        
+        add(s1);
+        add(s2);
+        add(s3);
+        add(s4);
+        add(s5);
+        
+        s1.addItemListener(this);
+        s2.addItemListener(this);
+        s3.addItemListener(this);
+        s4.addItemListener(this);
+        s5.addItemListener(this);
+
+        lbl = new Label();
+        add(lbl);
+
+        t1 = new TextArea(4,7);
+        add(t1);
+
+        this.setVisible(true);
+        this.setSize(300,300);
+        this.setTitle("--data--");
+
+        this.addWindowListener(new WindowAdapter() 
+        {
+           public void windowClosing(WindowEvent we)
+           {
+            System.exit(0);
+           } 
+        });
+    }
+    public void itemStateChanged(ItemEvent ie)
+    {
+        Checkbox selected = (Checkbox)student.getSelectedCheckbox();
+        if(selected != null)
+        {
+            String item = selected.getLabel();
+            //lbl.setText(item);
+            t1.append(item);
+        }
+    }
+}
+
+public class radiobutton_data_show_into_textarea 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
