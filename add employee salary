@@ -1,0 +1,50 @@
+package method;
+import java.util.*;
+public class emp_salary 
+{
+    String emp_type;
+    double salary;
+    double per;
+    Scanner sc = new Scanner(System.in);
+    public emp_salary()
+    {
+        //get employee type
+        System.out.print("Emloyee Type :- ");
+        emp_type = sc.next();
+
+        //employee salary
+        if(emp_type.equals("HR"))
+        {
+            salary = 50000;
+        }
+        else if(emp_type.equals("MR"))
+        {
+            salary = 60000;
+        }
+        else
+        {
+            System.out.println("your selected not found");
+        }
+        System.out.println("Employee old salary :- " + salary);
+
+        if(salary <= 50000)
+        {
+            per = 5;
+            salary += (salary * (per/100));
+        }
+        else 
+        {
+            per = 8;
+            salary += (salary * (per/100));
+        }
+
+    }
+    public void print_emp_salary()
+    {
+        System.out.println("-- employee salary --");
+        System.out.println("employee type :- " + emp_type);
+        System.out.println("employee increment :- " + per);
+        System.out.println("employee total salary :- " + salary);
+        
+    }
+}
