@@ -1,0 +1,27 @@
+package method;
+import java.util.*;
+public class emp_details
+{
+    public int id;
+    public String name;
+    public String dept;
+    Scanner sc = new Scanner(System.in);
+    
+    public emp_details()
+    {
+        System.out.print("Enter emp id :- ");
+        id = sc.nextInt();
+        System.out.print("Enter emp name  :- ");
+        name = sc.next();
+        System.out.print("Enter emp department :- ");
+        dept = sc.next();
+    }
+
+    public void print_emp_data()
+    {
+        System.out.println("--Employee Details--");
+        System.out.println("Emp id :- " + id);
+        System.out.println("Emp name :- " + name);
+        System.out.println("Emp department :- " + dept);
+    }
+}
