@@ -1,0 +1,14 @@
+import method.emp_details;
+import method.emp_salary;
+
+public class employee 
+{
+    public static void main(String[] args)
+    {
+        emp_details e = new emp_details();
+        
+        emp_salary s = new emp_salary();
+        e.print_emp_data();
+        s.print_emp_salary();
+    }    
+}
