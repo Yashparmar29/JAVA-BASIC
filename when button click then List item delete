@@ -1,0 +1,53 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ActionListener,ItemListener
+{
+    List l1;
+    Button del;
+
+    method()
+    {
+        super("ListBox");
+        this.setLayout(new FlowLayout());
+        l1 = new List(2,false);
+        l1.add("java");
+        l1.add("Python");
+        add(l1);
+
+        l1.addItemListener(this);
+
+        del = new Button("Delete");
+        add(del);
+        del.addActionListener(this);
+        this.setSize(400,400);
+        this.setVisible(true);
+
+        this.addWindowListener(new WindowAdapter() 
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);    
+            }
+        });
+    }
+    public void ActionPerformed(ActionEvent ae)
+    {
+        System.out.println("Delete item");
+        //l1.getSelectedItem() = " ";
+    }
+    public void itemStateSelected(ItemEvent ie)
+    {
+        String item = l1.getSelectedItem();
+        System.out.println(item);
+    }
+}
+
+public class smaple_btn 
+{
+    public static void main(String[] args)
+    {
+        new method();
+
+    }    
+}
