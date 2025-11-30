@@ -1,0 +1,67 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class login extends Frame implements ActionListener , TextListener
+{
+    Label lbl_uid,lbl_pass;
+    TextArea txt_uid,txt_pass;
+    Button log;
+    login()
+    {
+        super();
+        this.setLayout(new FlowLayout());
+        this.setSize(400,400);
+        this.setVisible(true);
+
+        lbl_uid = new Label("Enter User Id :- ");
+        add(lbl_uid);
+        txt_uid = new TextArea(1,9);
+        add(txt_uid);
+        txt_uid.addTextListener(this);
+
+        lbl_pass = new Label("Enter Password :- ");
+        add(lbl_pass);
+        txt_pass = new TextArea(1,9);
+        add(txt_pass);
+        txt_pass.addTextListener(this);
+
+        log = new Button("Login");
+        add(log);
+        log.addActionListener(this);
+
+        this.addWindowListener(new WindowAdapter() 
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);
+            }    
+        });
+
+    }
+    String uid = "",pass = "";
+    public void textValueChanged(TextEvent te)
+    {
+        uid = txt_uid.getText();
+        pass = txt_pass.getText();
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        if(uid.length() > 0 && pass.length() > 0)
+        {
+            System.out.println("User Id :- " + uid);
+            System.out.println("Password :- " + pass);
+        }
+        else
+        {
+            System.out.println("Enter user id / password");
+        }
+    }
+}
+
+public class user_panel 
+{
+    public static void main(String[] args)
+    {
+        new login();
+    }    
+}
