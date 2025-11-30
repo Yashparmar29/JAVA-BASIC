@@ -1,0 +1,65 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class method extends Frame implements ItemListener , ActionListener
+{
+    Button del;
+    List sub;
+
+    method()
+    {
+        super("--- List ---");
+        this.setLayout(new FlowLayout());
+        this.setSize(400,400);
+        this.setVisible(true);
+
+        sub = new List(5,false);
+        sub.add("java");
+        sub.add("python");
+        sub.add("dbms");
+        sub.add("dcn");
+        sub.add("rm");
+        add(sub);
+        sub.addActionListener(this);
+
+        del = new Button("Delete");
+        add(del);
+        del.addActionListener(this);
+
+        this.addWindowListener(new WindowAdapter() 
+        {
+            public void WindowClosing(WindowEvent we)
+            {   
+                System.exit(0);
+            }    
+        });
+    }
+    String item = "";
+    public void itemStateChanged(ItemEvent ie)
+    {
+        item = sub.getSelectedItem();
+    }
+
+    public void actionPerformed(ActionEvent ae)
+    {
+        int index = sub.getSelectedIndex();
+
+        if(index > 0)
+        {
+            sub.remove(index);
+            System.out.println(item + " deletd successfully......");
+        }
+        else
+        {
+            System.out.println("Item can't selected.....");
+        }
+    }
+}
+
+public class sample_btn 
+{
+    public static void main(String[] args)
+    {
+        new method();
+    }    
+}
