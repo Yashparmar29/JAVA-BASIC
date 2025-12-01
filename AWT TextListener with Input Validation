@@ -1,0 +1,35 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class TextValidationExample {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Number Input Only");
+        frame.setSize(400, 150);
+        frame.setLayout(new FlowLayout());
+
+        Label label = new Label("Enter a number:");
+        TextField textField = new TextField(20);
+        Label message = new Label("Waiting for input...");
+
+        textField.addTextListener(e -> {
+            String text = textField.getText();
+            if (text.matches("\\d*")) {
+                message.setText("Valid: " + text);
+            } else {
+                message.setText("Invalid input! Only digits allowed.");
+            }
+        });
+
+        frame.add(label);
+        frame.add(textField);
+        frame.add(message);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+            }
+        });
+
+        frame.setVisible(true);
+    }
+}
