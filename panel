@@ -1,0 +1,28 @@
+import java.awt.*;
+
+public class MyPanelExample extends Frame {
+
+    MyPanelExample() 
+    {
+        // setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
+
+        Panel p = new Panel();
+        p.setBackground(Color.lightGray);
+
+        p.add(new Label("Name:"));
+        p.add(new TextField(10));
+        p.add(new Button("Submit"));
+
+        add(p);
+
+    }
+
+    public static void main(String[] args) {
+        MyPanelExample E = new MyPanelExample();
+        E.setSize(300, 200);
+
+        E.setVisible(true);
+
+    }
+}
