@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class voter {
+    String V_name;
+    String V_add;
+    int V_no;
+    int adhar_no;
+
+    voter(String V_name,
+            String V_add,
+            int V_no,
+            int adhar_no) {
+        this.V_name = V_name;
+        this.V_add = V_add;
+        this.V_no = V_no;
+        this.adhar_no = adhar_no;
+
+    }
+
+    void display() {
+        System.out.println("Name: " + V_name);
+        System.out.println("Address: " + V_add);
+        System.out.println("Voter No: " + V_no);
+        System.out.println("Aadhar No: " + adhar_no);
+    }
+}
+
+public class Voter1 {
+    public static void main(String[] args) {
+        voter v[] = new voter[10];
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Enter the voter name");
+            String V_name = sc.next();
+            System.out.println("Enter the voter Address");
+            String V_add = sc.next();
+            System.out.println("Enter the voter No");
+            int V_no = sc.nextInt();
+            sc.nextLine();
+
+            System.out.println("Enter the voter Adharno");
+            int adhar_no = sc.nextInt();
+            v[i] = new voter(V_name, V_add, V_no, adhar_no);
+        }
+        System.out.println("=============Voter Details==================");
+        for (int i = 0; i < 10; i++) {
+            v[i].display();
+        }
+    }
+}
