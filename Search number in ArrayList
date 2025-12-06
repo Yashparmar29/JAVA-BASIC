@@ -1,0 +1,39 @@
+import java.util.*;
+public class search_field 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> no = new ArrayList<>();
+        while(true)
+        {
+            int i = 0;
+            System.out.print("Enter no :- ");
+            int n = sc.nextInt();
+
+            if(n == 0)
+            {
+                break;
+            }
+            else
+            {
+                no.add(n);
+            }
+            i++;
+        }
+        System.out.println(no);
+        System.out.print("Enter no :- ");
+        int n = sc.nextInt();
+        while (true) 
+        {
+            int i = 0;
+            
+            if(no.equals(n))
+            {
+                System.out.println(i + " :- " + n);
+                break;
+            }
+            i++;
+        }
+    }
+}
