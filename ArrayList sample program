@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class sample
+{
+    public static void main(String[] ags)
+    {
+        ArrayList<String> name = new ArrayList<>();
+        name.add("Yash");
+        name.add("Bhavik");
+        name.add("Darshana");
+        name.add("Darshan");
+
+        System.out.println(name);
+        System.out.println("First Element :- " + name.get(0));
+    }
+}
