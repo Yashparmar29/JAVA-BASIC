@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+class Student {
+    String name;
+    int age;
+
+    Student(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class Student_data
+{
+    public static void main(String[] args) 
+    {
+
+        ArrayList<Student> list = new ArrayList<>();
+
+        list.add(new Student("Yash", 20));
+        list.add(new Student("Riya", 22));
+
+        for (Student s : list) 
+        {
+            System.out.println(s.name + " - " + s.age);
+        }
+    }
+}
