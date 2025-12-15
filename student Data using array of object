@@ -1,0 +1,69 @@
+import java.util.*;
+
+class student
+{
+    int sid,total = 0;
+    String name,dept;
+    int mark[] = new int[5];
+
+    student(Scanner sc)
+    {
+        System.out.print("Enter Student Id :- ");
+        sid = sc.nextInt();
+        System.out.println("Enter Student Name :- ");
+        name = sc.next();
+        System.out.println("Enter Deptarment :- ");
+        dept = sc.next();
+
+        for(int i=0;i<5;i++)
+        {
+            System.out.println("Enter Marks :- ");
+            mark[i] = sc.nextInt();
+        }
+    }
+    void display()
+    {
+        System.out.println();
+        System.out.println("---- Student Data ----");
+        System.out.println("Student id :- " + sid);
+        System.out.println("Student Name :- " + name);
+        System.out.println("Department :- " + dept);
+        //int total = 0;
+        for(int i=0;i<5;i++)
+        {
+            total += mark[i];
+        }
+        System.out.println("Total Marks :- " + total);
+    }
+}
+
+public class example2 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        student s[] = new student[5];
+        for(int i=0;i<5;i++)
+        {
+            s[i] = new student(sc);
+        }
+        int id = 0;
+        for(int i=0;i<5;i++)
+        {
+            int t = 0;
+            if(i == 4)
+            {
+                t = 4;
+            }
+            else
+            {
+                t = i+1;
+            }
+            if(s[i].total < s[t].total)
+            {
+                id = t;
+            }   
+        }
+        s[id].display();
+    } 
+}
